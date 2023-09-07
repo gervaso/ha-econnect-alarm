@@ -1,7 +1,6 @@
 {
     "name": "Home Assistant e-Connect Integration (Elmo)",
-    "content_in_root": true,
-    "hide_default_branch": true,
-    "filename": "my_super_awesome_thing.js",
-    "country": ["NO", "SE", "DK"]
+    "content_in_root": false,
+    "render_readme": true,
+    "hide_default_branch": true
   }
