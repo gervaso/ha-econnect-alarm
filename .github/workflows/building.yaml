@@ -61,4 +61,5 @@ jobs:
       - name: Upload zip to release
         uses: actions/upload-artifact@v3
         with:
-          files: ${{ github.workspace }}/custom_components/econnect_alarm/econnect_alarm.zip
+          name: econnect_alarm/econnect_alarm.zip
+          path: ${{ github.workspace }}/custom_components/econnect_alarm/econnect_alarm.zip
