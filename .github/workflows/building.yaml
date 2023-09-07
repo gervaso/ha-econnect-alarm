@@ -64,3 +64,5 @@ jobs:
         # if: ${{ github.event_name == 'release' }}
         with:
           files: ${{ github.workspace }}/custom_components/econnect_alarm/econnect_alarm.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
