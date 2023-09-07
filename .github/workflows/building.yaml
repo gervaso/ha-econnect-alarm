@@ -54,12 +54,13 @@ jobs:
           if-no-files-found: error
 
       - name: ZIP Component Dir
+        # if: ${{ github.event_name == 'release' }}
         run: |
           cd ${{ github.workspace }}/custom_components/econnect_alarm
           zip econnect_alarm.zip -r ./
 
       - name: Upload zip to release
-        uses: actions/upload-artifact@v3
+        uses: softprops/action-gh-release@v0.1.15
+        # if: ${{ github.event_name == 'release' }}
         with:
-          name: econnect_alarm.zip
-          path: ${{ github.workspace }}/custom_components/econnect_alarm/econnect_alarm.zip
+          files: ${{ github.workspace }}/custom_components/econnect_alarm/econnect_alarm.zip
