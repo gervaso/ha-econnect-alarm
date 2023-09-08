@@ -7,7 +7,7 @@ on:
       - 'v*'
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
@@ -52,3 +52,13 @@ jobs:
           name: econnect-alarm-${{ env.PKG_VERSION }}.tar.gz
           path: dist/econnect_alarm-${{ env.PKG_VERSION }}.tar.gz
           if-no-files-found: error
+
+      - name: ZIP Component Dir
+        run: |
+          cd ${{ github.workspace }}/custom_components/econnect_alarm
+          zip econnect_alarm.zip -r ./
+
+      - name: Upload zip to release
+        uses: softprops/action-gh-release@v0.1.15
+        with:
+          files: ${{ github.workspace }}/custom_components/econnect_alarm/econnect_alarm.zip
