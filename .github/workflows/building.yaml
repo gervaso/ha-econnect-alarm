@@ -7,7 +7,7 @@ on:
       - 'v*'
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
@@ -64,5 +64,3 @@ jobs:
         # if: ${{ github.event_name == 'release' }}
         with:
           files: ${{ github.workspace }}/custom_components/econnect_alarm/econnect_alarm.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
